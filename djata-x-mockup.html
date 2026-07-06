@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJATA X — Building Africa's Intelligent Future</title>
+<meta name="description" content="Djata X - Groupe technologique panafricain spécialisé en Intelligence Artificielle, Robotique, Cybersécurité et Transformation Numérique. Bâtissons l'avenir intelligent de l'Afrique.">
+<meta name="keywords" content="Djata X, Intelligence Artificielle, Robotique, Cybersécurité, Transformation Numérique, Afrique, Côte d'Ivoire, DocLive, Nzue Tontine, SAFE 24">
+<meta name="author" content="Djata X">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+  :root{
+    --navy: #0B2F6B;
+    --blue: #1E5AA8;
+    --metal: #B3B6BD;
+    --white: #FFFFFF;
+    --bg-soft: #F4F6F9;
+    --glow: #3D8BFF;
+    --ink: #08132B;
+    --ink-soft: #445071;
+    --card-bg: rgba(255,255,255,0.66);
+    --card-border: rgba(11,47,107,0.10);
+    --surface: #FFFFFF;
+    --surface-alt: #F4F6F9;
+    --shadow: 0 20px 60px -20px rgba(11,47,107,0.25);
+    --radius: 20px;
+    --transition: 0.5s cubic-bezier(.16,.8,.24,1);
+  }
+  html.dark{
+    --bg-soft: #060B18;
+    --ink: #EAF0FF;
+    --ink-soft: #93A2C7;
+    --card-bg: rgba(255,255,255,0.05);
+    --card-border: rgba(255,255,255,0.10);
+    --surface: #0A1428;
+    --surface-alt: #060B18;
+    --shadow: 0 20px 60px -20px rgba(0,0,0,0.6);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--surface-alt);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+    transition:background var(--transition), color var(--transition);
+  }
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;letter-spacing:-0.02em;color:var(--ink);}
+  a{text-decoration:none;color:inherit;}
+  ul{list-style:none;}
+  img{max-width:100%;display:block;}
+  .container{max-width:1200px;margin:0 auto;padding:0 32px;}
+  section{position:relative;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12.5px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--blue);margin-bottom:16px;
+  }
+  html.dark .eyebrow{color:var(--glow);}
+  .eyebrow::before{content:'';width:18px;height:1.5px;background:currentColor;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    backdrop-filter:blur(16px) saturate(160%);
+    -webkit-backdrop-filter:blur(16px) saturate(160%);
+    background:rgba(255,255,255,0.72);
+    border-bottom:1px solid rgba(11,47,107,0.08);
+    transition:background var(--transition), border-color var(--transition);
+  }
+  html.dark header{background:rgba(6,11,24,0.72);border-bottom-color:rgba(255,255,255,0.08);}
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    max-width:1200px;margin:0 auto;padding:18px 32px;
+  }
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk';font-weight:700;font-size:20px;color:var(--ink);}
+  .logo .mark{
+    width:34px;height:34px;border-radius:9px;
+    background:linear-gradient(135deg, var(--navy), var(--glow));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:15px;font-weight:700;
+    box-shadow:0 6px 18px -6px rgba(30,90,168,0.6);
+  }
+  .nav-links{display:flex;gap:34px;font-size:14.5px;font-weight:500;color:var(--ink-soft);}
+  .nav-links a{position:relative;transition:color .25s;}
+  .nav-links a:hover{color:var(--blue);}
+  html.dark .nav-links a:hover{color:var(--glow);}
+  .nav-right{display:flex;align-items:center;gap:14px;}
+  .lang-toggle{
+    font-size:12.5px;font-weight:600;color:var(--ink-soft);
+    border:1px solid var(--card-border);border-radius:20px;padding:6px 12px;cursor:pointer;
+    background:transparent;
+  }
+  .theme-toggle{
+    width:38px;height:38px;border-radius:50%;border:1px solid var(--card-border);
+    background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink-soft);
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 26px;border-radius:12px;font-weight:600;font-size:14.5px;
+    cursor:pointer;border:none;transition:transform .3s, box-shadow .3s, background .3s;
+    white-space:nowrap;
+  }
+  .btn-primary{background:linear-gradient(135deg, var(--navy), var(--blue)); color:#fff;box-shadow:0 12px 28px -10px rgba(30,90,168,0.55);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 34px -8px rgba(30,90,168,0.65);}
+  .btn-ghost{background:transparent;border:1.5px solid var(--card-border);color:var(--ink);}
+  html.dark .btn-ghost{border-color:rgba(255,255,255,0.18);}
+  .btn-ghost:hover{border-color:var(--blue);color:var(--blue);}
+  .mobile-toggle{display:none;background:none;border:none;color:var(--ink);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh;display:flex;align-items:center;
+    padding:140px 0 80px;position:relative;overflow:hidden;
+    background:radial-gradient(120% 90% at 80% -10%, rgba(30,90,168,0.10), transparent 60%), var(--surface-alt);
+  }
+  #network-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:0.9;}
+  .hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 32px;width:100%;}
+  .hero-content{max-width:680px;}
+  .hero h1{font-size:clamp(38px,5.4vw,68px);font-weight:700;line-height:1.06;margin-bottom:26px;}
+  .hero h1 .accent{background:linear-gradient(100deg, var(--blue), var(--glow));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero p.lead{font-size:18px;color:var(--ink-soft);max-width:560px;margin-bottom:38px;}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:56px;}
+  .hero-tagline{
+    display:inline-flex;align-items:center;gap:10px;font-family:'Space Grotesk';
+    font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--navy);
+  }
+  html.dark .hero-tagline{color:var(--metal);}
+  .hero-tagline .dot{width:8px;height:8px;border-radius:50%;background:var(--glow);box-shadow:0 0 12px var(--glow);animation:pulse-dot 2s infinite;}
+  @keyframes pulse-dot{0%,100%{opacity:1;}50%{opacity:.35;}}
+
+  /* ---------- STATS ---------- */
+  .stats-strip{
+    border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border);
+    background:var(--surface);
+  }
+  .stats-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    max-width:1200px;margin:0 auto;
+  }
+  .stat{padding:38px 32px;text-align:left;border-right:1px solid var(--card-border);}
+  .stat:last-child{border-right:none;}
+  .stat .num{font-family:'Space Grotesk';font-size:34px;font-weight:700;color:var(--navy);}
+  html.dark .stat .num{color:var(--glow);}
+  .stat .label{font-size:13.5px;color:var(--ink-soft);margin-top:4px;}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section{padding:110px 0;}
+  .section-head{max-width:640px;margin-bottom:64px;}
+  .section-head h2{font-size:clamp(28px,3.4vw,42px);font-weight:700;margin-bottom:16px;}
+  .section-head p{color:var(--ink-soft);font-size:16.5px;}
+  .alt-bg{background:var(--surface-alt);}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease, transform .8s ease;}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+
+  /* ---------- WHY ---------- */
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .why-card{
+    background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius);
+    padding:32px 26px;backdrop-filter:blur(10px);
+    transition:transform .4s, box-shadow .4s, border-color .4s;
+  }
+  .why-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:rgba(30,90,168,0.35);}
+  .why-card .icon-wrap{
+    width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--blue));
+    display:flex;align-items:center;justify-content:center;color:#fff;margin-bottom:20px;
+  }
+  .why-card h3{font-size:17.5px;margin-bottom:10px;}
+  .why-card p{font-size:14.5px;color:var(--ink-soft);}
+
+  /* ---------- DEPARTMENTS ---------- */
+  .dept-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .dept-card{
+    position:relative;overflow:hidden;
+    background:var(--surface);border:1px solid var(--card-border);border-radius:var(--radius);
+    padding:36px;transition:transform .4s, box-shadow .4s;
+  }
+  .dept-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .dept-card .dept-num{position:absolute;top:24px;right:28px;font-family:'Space Grotesk';font-size:13px;color:var(--metal);font-weight:600;}
+  .dept-card .icon-wrap{
+    width:52px;height:52px;border-radius:14px;background:var(--surface-alt);border:1px solid var(--card-border);
+    display:flex;align-items:center;justify-content:center;color:var(--navy);margin-bottom:22px;
+  }
+  html.dark .dept-card .icon-wrap{color:var(--glow);}
+  .dept-card h3{font-size:21px;margin-bottom:10px;}
+  .dept-card .lead-name{font-size:13px;color:var(--blue);font-weight:600;margin-bottom:14px;}
+  html.dark .dept-card .lead-name{color:var(--glow);}
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+  .tag{
+    font-size:12px;font-weight:500;color:var(--ink-soft);
+    background:var(--surface-alt);border:1px solid var(--card-border);
+    padding:5px 11px;border-radius:20px;
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+  .service-card{
+    background:var(--card-bg);border:1px solid var(--card-border);border-radius:16px;
+    padding:26px 20px;text-align:left;backdrop-filter:blur(10px);
+    transition:transform .35s, border-color .35s;
+  }
+  .service-card:hover{transform:translateY(-4px);border-color:var(--blue);}
+  .service-card .icon-wrap{color:var(--navy);margin-bottom:16px;}
+  html.dark .service-card .icon-wrap{color:var(--glow);}
+  .service-card h4{font-size:14.5px;font-weight:600;}
+
+  /* ---------- PROJECTS ---------- */
+  .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .proj-card{
+    border-radius:var(--radius);overflow:hidden;position:relative;
+    background:linear-gradient(160deg, var(--navy), #071B42);
+    padding:38px;min-height:250px;display:flex;flex-direction:column;justify-content:flex-end;
+    color:#fff;transition:transform .4s;
+  }
+  .proj-card:hover{transform:translateY(-6px);}
+  .proj-card::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(120% 120% at 90% 0%, rgba(61,139,255,0.35), transparent 60%);
+  }
+  .proj-card .proj-tag{position:relative;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--metal);margin-bottom:12px;}
+  .proj-card h3{position:relative;color:#fff;font-size:23px;margin-bottom:10px;}
+  .proj-card p{position:relative;color:rgba(255,255,255,0.75);font-size:14.5px;max-width:400px;}
+  .proj-card .arrow{position:relative;margin-top:20px;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:#fff;}
+
+  /* ---------- CTA ---------- */
+  .cta-section{
+    padding:100px 0;text-align:center;position:relative;overflow:hidden;
+    background:linear-gradient(135deg, var(--navy), #0E3E85 55%, var(--blue));
+  }
+  .cta-section h2{color:#fff;font-size:clamp(28px,4vw,44px);max-width:680px;margin:0 auto 20px;}
+  .cta-section p{color:rgba(255,255,255,0.78);max-width:520px;margin:0 auto 38px;}
+  .cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+  .cta-section .btn-ghost{border-color:rgba(255,255,255,0.35);color:#fff;}
+  .cta-section .btn-ghost:hover{border-color:#fff;}
+  .cta-section .btn-primary{background:#fff;color:var(--navy);box-shadow:0 12px 28px -10px rgba(0,0,0,0.35);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--surface);border-top:1px solid var(--card-border);padding:60px 0 30px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px;}
+  .footer-col h5{font-size:13px;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-soft);margin-bottom:18px;}
+  .footer-col ul li{margin-bottom:11px;font-size:14.5px;}
+  .footer-col ul li a{color:var(--ink-soft);transition:color .25s;}
+  .footer-col ul li a:hover{color:var(--blue);}
+  .footer-bottom{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-top:26px;border-top:1px solid var(--card-border);
+    font-size:13px;color:var(--ink-soft);flex-wrap:wrap;gap:14px;
+  }
+  .socials{display:flex;gap:14px;}
+  .socials a{width:36px;height:36px;border-radius:50%;border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;color:var(--ink-soft);}
+  .socials a:hover{color:var(--blue);border-color:var(--blue);}
+
+  .whatsapp-float{
+    position:fixed;bottom:28px;right:28px;z-index:90;
+    width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px -8px rgba(37,211,102,0.6);
+    cursor:pointer;transition:transform .3s;
+  }
+  .whatsapp-float:hover{transform:scale(1.08);}
+
+  @media(max-width:980px){
+    .nav-links{display:none;}
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+    .dept-grid{grid-template-columns:1fr;}
+    .services-grid{grid-template-columns:repeat(3,1fr);}
+    .proj-grid{grid-template-columns:1fr;}
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+    .stat{border-bottom:1px solid var(--card-border);}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:600px){
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .stats-grid{grid-template-columns:1fr 1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .hero-ctas .btn{width:100%;justify-content:center;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .reveal{transition:none;opacity:1;transform:none;}
+    .hero-tagline .dot{animation:none;}
+  }
+
+  /* ---------- MODALS ---------- */
+  body.modal-open {
+    overflow: hidden;
+  }
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(8,19,43,0.45);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(.16,1,.3,1);
+    padding: 20px;
+  }
+  .modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .modal-container {
+    background: var(--surface);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 36px;
+    width: 100%;
+    max-width: 580px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow);
+    position: relative;
+    transform: scale(0.93) translateY(15px);
+    transition: transform 0.4s cubic-bezier(.16,1,.3,1), background var(--transition), border-color var(--transition);
+  }
+  .modal-overlay.active .modal-container {
+    transform: scale(1) translateY(0);
+  }
+  .modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    border: 1px solid var(--card-border);
+    background: transparent;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    transition: background 0.25s, color 0.25s, border-color 0.25s;
+    z-index: 10;
+  }
+  .modal-close:hover {
+    background: var(--surface-alt);
+    color: var(--ink);
+    border-color: var(--ink-soft);
+  }
+  .modal-head {
+    margin-bottom: 24px;
+    text-align: left;
+  }
+  .modal-head h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .modal-head p {
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.02em;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1.5px solid var(--card-border);
+    background: var(--surface-alt);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(30,90,168,0.18);
+  }
+  html.dark .form-group input:focus,
+  html.dark .form-group select:focus,
+  html.dark .form-group textarea:focus {
+    border-color: var(--glow);
+    box-shadow: 0 0 0 3px rgba(61,139,255,0.25);
+  }
+  .form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  /* Success Screen inside Modal */
+  .modal-success {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 10px;
+    animation: fadeInModal 0.4s ease;
+  }
+  @keyframes fadeInModal {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .modal-success-icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: rgba(37,211,102,0.12);
+    color: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 24px -6px rgba(37,211,102,0.3);
+  }
+  .modal-success-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .modal-success-desc {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    max-width: 340px;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  @media(max-width:600px){
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 0px;
+    }
+    .modal-container {
+      padding: 26px 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo"><span class="mark">DX</span> DJATA X</div>
+    <ul class="nav-links">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#departements">Départements</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projets">Réalisations</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="lang-toggle" title="Bientôt disponible en anglais">FR · EN</button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Basculer le mode sombre"><i data-lucide="moon" width="17" height="17"></i></button>
+      <a href="#contact" class="btn btn-primary" style="padding:10px 20px;font-size:13.5px;">Nous contacter</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="accueil">
+  <canvas id="network-canvas"></canvas>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tagline"><span class="dot"></span> Building Africa's Intelligent Future</div>
+      <h1 style="margin-top:22px;">Construisons ensemble la <span class="accent">prochaine génération</span> des technologies africaines.</h1>
+      <p class="lead">Djata X développe des solutions d'intelligence artificielle, de robotique, de cybersécurité et de transformation numérique qui accélèrent la croissance des entreprises et des institutions à travers l'Afrique.</p>
+      <div class="hero-ctas">
+        <a href="#services" class="btn btn-primary">Découvrir nos solutions <i data-lucide="arrow-right" width="16" height="16"></i></a>
+        <a href="#contact" class="btn btn-ghost">Nous contacter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="stats-grid">
+    <div class="stat reveal"><div class="num">4</div><div class="label">Départements technologiques</div></div>
+    <div class="stat reveal"><div class="num">9</div><div class="label">Secteurs d'application</div></div>
+    <div class="stat reveal"><div class="num">10+</div><div class="label">Domaines de services</div></div>
+    <div class="stat reveal"><div class="num">2040</div><div class="label">Horizon de notre vision</div></div>
+  </div>
+</div>
+
+<section class="section" id="pourquoi">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Pourquoi Djata X</div>
+      <h2>Une ambition continentale, une exécution rigoureuse.</h2>
+      <p>Le nom Djata X s'inspire de Soundjata Keïta — symbole de leadership et de vision. Nous portons cet héritage dans une entreprise technologique pensée pour l'échelle du continent.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="icon-wrap"><i data-lucide="brain-circuit" width="22" height="22"></i></div>
+        <h3>Expertise technologique</h3>
+        <p>IA, robotique, cybersécurité et data réunies sous un même toit pour des solutions bout en bout.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="icon-wrap"><i data-lucide="map" width="22" height="22"></i></div>
+        <h3>Ancrage africain</h3>
+        <p>Des solutions pensées pour les réalités du terrain — infrastructures, réseaux et usages locaux.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="icon-wrap"><i data-lucide="shield-check" width="22" height="22"></i></div>
+        <h3>Confiance et rigueur</h3>
+        <p>Sécurité des données et conformité au cœur de chaque projet livré à nos partenaires.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="icon-wrap"><i data-lucide="rocket" width="22" height="22"></i></div>
+        <h3>Vision 2040</h3>
+        <p>Une feuille de route de long terme pour bâtir un groupe technologique de référence mondiale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt-bg" id="departements">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Nos départements</div>
+      <h2>Quatre pôles d'expertise, une seule vision.</h2>
+      <p>Nos départements sont garants de l'excellence technique et de l'impact terrain sur l'ensemble de nos solutions.</p>
+    </div>
+    <div class="dept-grid">
+      <div class="dept-card reveal">
+        <span class="dept-num">01</span>
+        <div class="icon-wrap"><i data-lucide="cpu" width="24" height="24"></i></div>
+        <h3>Intelligence Artificielle &amp; Data Science</h3>
+        <p style="color:var(--ink-soft);font-size:14.5px;">IA générative, machine learning, deep learning et analyse prédictive au service de la décision.</p>
+        <div class="tag-row">
+          <span class="tag">NLP</span><span class="tag">Computer Vision</span><span class="tag">Big Data</span>
+        </div>
+      </div>
+      <div class="dept-card reveal">
+        <span class="dept-num">02</span>
+        <div class="icon-wrap"><i data-lucide="layout-grid" width="24" height="24"></i></div>
+        <h3>Développement d'Applications</h3>
+        <p style="color:var(--ink-soft);font-size:14.5px;">Applications mobiles, web, SaaS, ERP et CRM, avec automatisation intelligente des processus métiers.</p>
+        <div class="tag-row">
+          <span class="tag">FinTech</span><span class="tag">HealthTech</span><span class="tag">n8n · Odoo</span>
+        </div>
+      </div>
+      <div class="dept-card reveal">
+        <span class="dept-num">03</span>
+        <div class="icon-wrap"><i data-lucide="bot" width="24" height="24"></i></div>
+        <h3>Robotique</h3>
+        <p style="color:var(--ink-soft);font-size:14.5px;">Robotique industrielle et médicale, drones et systèmes embarqués connectés.</p>
+        <div class="tag-row">
+          <span class="tag">IoT</span><span class="tag">Drones</span><span class="tag">Systèmes embarqués</span>
+        </div>
+      </div>
+      <div class="dept-card reveal">
+        <span class="dept-num">04</span>
+        <div class="icon-wrap"><i data-lucide="lock" width="24" height="24"></i></div>
+        <h3>Cybersécurité</h3>
+        <p style="color:var(--ink-soft);font-size:14.5px;">Pentest, sécurité cloud, protection des données et supervision SOC continue.</p>
+        <div class="tag-row">
+          <span class="tag">Pentest</span><span class="tag">SOC</span><span class="tag">Sécurité Cloud</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Nos services</div>
+      <h2>Un accompagnement complet, de l'idée au déploiement.</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal"><div class="icon-wrap"><i data-lucide="sparkles" width="22" height="22"></i></div><h4>Intelligence Artificielle</h4></div>
+      <div class="service-card reveal"><div class="icon-wrap"><i data-lucide="workflow" width="22" height="22"></i></div><h4>Automatisation</h4></div>
+      <div class="service-card reveal"><div class="icon-wrap"><i data-lucide="code-2" width="22" height="22"></i></div><h4>Développement logiciel</h4></div>
+      <div class="service-card reveal"><div class="icon-wrap"><i data-lucide="boxes" width="22" height="22"></i></div><h4>ERP Odoo</h4></div>
+      <div class="service-card reveal"><div class="icon-wrap"><i data-lucide="bot" width="22" height="22"></i></div><h4>Robotique</h4></div>
+      <div class="service-card reveal"><div class="icon-wrap"><i data-lucide="shield" width="22" height="22"></i></div><h4>Cybersécurité</h4></div>
+      <div class="service-card reveal"><div class="icon-wrap"><i data-lucide="cloud" width="22" height="22"></i></div><h4>Cloud</h4></div>
+      <div class="service-card reveal"><div class="icon-wrap"><i data-lucide="bar-chart-3" width="22" height="22"></i></div><h4>Data Science</h4></div>
+      <div class="service-card reveal"><div class="icon-wrap"><i data-lucide="lightbulb" width="22" height="22"></i></div><h4>Conseil numérique</h4></div>
+      <div class="service-card reveal"><div class="icon-wrap"><i data-lucide="graduation-cap" width="22" height="22"></i></div><h4>Formation</h4></div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt-bg" id="projets">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Nos innovations</div>
+      <h2>Des projets concrets, déjà en mouvement.</h2>
+    </div>
+    <div class="proj-grid">
+      <a href="http://localhost:8081" target="_blank" rel="noopener noreferrer" class="proj-card reveal">
+        <div class="proj-tag">HealthTech</div>
+        <h3>DocLive</h3>
+        <p>Plateforme de télémédecine connectant patients et médecins en Côte d'Ivoire et en Afrique de l'Ouest.</p>
+        <div class="arrow"><i data-lucide="arrow-up-right" width="16" height="16"></i></div>
+      </a>
+      <a href="http://localhost:5174" target="_blank" rel="noopener noreferrer" class="proj-card reveal">
+        <div class="proj-tag">FinTech</div>
+        <h3>Nzue Tontine</h3>
+        <p>Solution de finance communautaire digitalisant la tontine traditionnelle africaine.</p>
+        <div class="arrow"><i data-lucide="arrow-up-right" width="16" height="16"></i></div>
+      </a>
+      <a href="http://localhost:5000" target="_blank" rel="noopener noreferrer" class="proj-card reveal">
+        <div class="proj-tag">Sécurité</div>
+        <h3>Plateforme de sécurité personnelle</h3>
+        <p>Système d'alerte et de géolocalisation pour la sécurité des citoyens.</p>
+        <div class="arrow"><i data-lucide="arrow-up-right" width="16" height="16"></i></div>
+      </a>
+      <a href="#contact" class="proj-card reveal">
+        <div class="proj-tag">Automatisation IA</div>
+        <h3>Solutions PME</h3>
+        <p>Automatisation intelligente des processus métiers pour petites et moyennes entreprises.</p>
+        <div class="arrow"><i data-lucide="arrow-up-right" width="16" height="16"></i></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="container reveal">
+    <h2>Prêt à construire l'avenir technologique de l'Afrique ?</h2>
+    <p>Parlons de votre projet — entreprise, institution ou gouvernement, notre équipe vous accompagne de la stratégie au déploiement.</p>
+    <div class="cta-btns">
+      <button id="open-appointment" class="btn btn-primary">Prendre rendez-vous</button>
+      <button id="open-contact" class="btn btn-ghost">Nous écrire</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:14px;"><span class="mark">DX</span> DJATA X</div>
+        <p style="color:var(--ink-soft);font-size:14px;max-width:280px;">Building Africa's Intelligent Future. Abidjan, Côte d'Ivoire.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Entreprise</h5>
+        <ul>
+          <li><a href="#pourquoi">À propos</a></li>
+          <li><a href="#departements">Départements</a></li>
+          <li><a href="#contact">Carrières</a></li>
+          <li><a href="#projets">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Solutions</h5>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projets">Réalisations</a></li>
+          <li><a href="#contact">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:contact@djatax.com">contact@djatax.com</a></li>
+          <li><a href="https://maps.google.com/?q=Abidjan,+C%C3%B4te+d'Ivoire" target="_blank" rel="noopener noreferrer">Abidjan, Côte d'Ivoire</a></li>
+        </ul>
+        <div class="socials" style="margin-top:16px;">
+          <a href="https://www.linkedin.com/company/djatax" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i data-lucide="linkedin" width="16" height="16"></i></a>
+          <a href="https://twitter.com/djatax" target="_blank" rel="noopener noreferrer" title="Twitter"><i data-lucide="twitter" width="16" height="16"></i></a>
+          <a href="https://instagram.com/djatax" target="_blank" rel="noopener noreferrer" title="Instagram"><i data-lucide="instagram" width="16" height="16"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Djata X. Tous droits réservés.</span>
+      <span>Conçu en Afrique, pour l'Afrique.</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/2250700000000" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contacter sur WhatsApp"><i data-lucide="message-circle" width="24" height="24"></i></a>
+
+<script>
+  lucide.createIcons();
+
+  // Modals logic
+  const modalApt = document.getElementById('modal-appointment');
+  const modalContact = document.getElementById('modal-contact');
+  const btnOpenApt = document.getElementById('open-appointment');
+  const btnOpenContact = document.getElementById('open-contact');
+
+  // Toggle body scroll locking
+  function toggleScrollLock(lock) {
+    if (lock) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+  }
+
+  function openModal(modal) {
+    modal.classList.add('active');
+    toggleScrollLock(true);
+    
+    // Reset form and state inside modal
+    const form = modal.querySelector('form');
+    if (form) {
+      form.reset();
+      form.style.display = 'block';
+    }
+    const successScreen = modal.querySelector('.modal-success');
+    if (successScreen) {
+      successScreen.style.display = 'none';
+    }
+    const bodyContent = modal.querySelector('.modal-body-content');
+    if (bodyContent) {
+      bodyContent.style.display = 'block';
+    }
+  }
+
+  function closeModal(modal) {
+    modal.classList.remove('active');
+    toggleScrollLock(false);
+  }
+
+  // Open triggers
+  if (btnOpenApt) {
+    btnOpenApt.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal(modalApt);
+    });
+  }
+  if (btnOpenContact) {
+    btnOpenContact.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal(modalContact);
+    });
+  }
+
+  // Close triggers
+  const allCloseBtns = document.querySelectorAll('.modal-close, .modal-close-btn');
+  allCloseBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const modal = btn.closest('.modal-overlay');
+      if (modal) closeModal(modal);
+    });
+  });
+
+  // Close when clicking outside content container
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        closeModal(overlay);
+      }
+    });
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const activeModal = document.querySelector('.modal-overlay.active');
+      if (activeModal) closeModal(activeModal);
+    }
+  });
+
+  // Form Submissions
+  const formApt = document.getElementById('form-appointment');
+  if (formApt) {
+    formApt.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const bodyContent = modalApt.querySelector('.modal-body-content');
+      const successScreen = document.getElementById('success-appointment');
+      if (bodyContent && successScreen) {
+        bodyContent.style.display = 'none';
+        successScreen.style.display = 'flex';
+      }
+    });
+  }
+
+  const formContact = document.getElementById('form-contact');
+  if (formContact) {
+    formContact.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const bodyContent = modalContact.querySelector('.modal-body-content');
+      const successScreen = document.getElementById('success-contact');
+      if (bodyContent && successScreen) {
+        bodyContent.style.display = 'none';
+        successScreen.style.display = 'flex';
+      }
+    });
+  }
+
+  // Theme toggle
+  const themeToggle = document.getElementById('themeToggle');
+  themeToggle.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    const isDark = document.documentElement.classList.contains('dark');
+    themeToggle.innerHTML = isDark
+      ? '<i data-lucide="sun" width="17" height="17"></i>'
+      : '<i data-lucide="moon" width="17" height="17"></i>';
+    lucide.createIcons();
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // --- Signature element: African continent constellation network ---
+  const canvas = document.getElementById('network-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, dpr;
+
+  // Simplified silhouette anchor points suggesting the African continent (normalized 0-1)
+  const africaOutline = [
+    [0.30,0.06],[0.46,0.03],[0.58,0.05],[0.66,0.10],[0.78,0.16],
+    [0.86,0.24],[0.90,0.30],[0.85,0.34],[0.80,0.33],[0.78,0.40],
+    [0.72,0.46],[0.70,0.55],[0.66,0.66],[0.60,0.78],[0.54,0.90],
+    [0.47,0.97],[0.42,0.88],[0.36,0.78],[0.30,0.66],[0.24,0.56],
+    [0.18,0.46],[0.14,0.36],[0.12,0.26],[0.14,0.16],[0.20,0.10],[0.30,0.06]
+  ];
+
+  // hub cities (approx relative positions, highlighting West Africa / Abidjan)
+  const hubs = [
+    {x:0.22,y:0.52,label:'Abidjan'},
+    {x:0.30,y:0.46,label:'Lagos'},
+    {x:0.66,y:0.30,label:'Le Caire'},
+    {x:0.62,y:0.62,label:'Nairobi'},
+    {x:0.46,y:0.92,label:'Johannesburg'}
+  ];
+
+  let nodes = [];
+
+  function pointInPolygon(x, y, poly) {
+    let inside = false;
+    for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+      const xi = poly[i][0], yi = poly[i][1];
+      const xj = poly[j][0], yj = poly[j][1];
+      const intersect = ((yi > y) !== (yj > y)) &&
+        (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+      if (intersect) inside = !inside;
+    }
+    return inside;
+  }
+
+  function buildNodes() {
+    nodes = [];
+    // outline nodes
+    africaOutline.forEach(([x,y], i) => {
+      if (i % 1 === 0) nodes.push({ bx:x, by:y, x:0, y:0, phase:Math.random()*Math.PI*2, hub:false });
+    });
+    // interior scattered nodes
+    let tries = 0, added = 0;
+    while (added < 46 && tries < 800) {
+      tries++;
+      const x = Math.random(), y = Math.random()*0.95+0.02;
+      if (pointInPolygon(x, y, africaOutline)) {
+        nodes.push({ bx:x, by:y, x:0, y:0, phase:Math.random()*Math.PI*2, hub:false });
+        added++;
+      }
+    }
+    hubs.forEach(h => nodes.push({ bx:h.x, by:h.y, x:0, y:0, phase:0, hub:true }));
+  }
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = canvas.clientWidth; H = canvas.clientHeight;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+
+  function isDark(){ return document.documentElement.classList.contains('dark'); }
+
+  let t = 0;
+  function animate() {
+    t += 0.006;
+    ctx.clearRect(0,0,W,H);
+
+    // map region: place the "continent" toward the right side of the hero
+    const originX = W * 0.52, originY = H * -0.02;
+    const mapW = Math.min(W*0.62, 620), mapH = mapW * 1.05;
+
+    nodes.forEach(n => {
+      const wob = 6;
+      n.x = originX + n.bx * mapW + Math.sin(t + n.phase) * wob;
+      n.y = originY + n.by * mapH + Math.cos(t*0.8 + n.phase) * wob;
+    });
+
+    const lineColor = isDark() ? 'rgba(120,170,255,' : 'rgba(30,90,168,';
+    const nodeColor = isDark() ? '#7db2ff' : '#1E5AA8';
+    const hubColor = isDark() ? '#9fd0ff' : '#0B2F6B';
+
+    // connections (nearest neighbours)
+    for (let i=0;i<nodes.length;i++){
+      let dists = [];
+      for (let j=0;j<nodes.length;j++){
+        if (i===j) continue;
+        const dx = nodes[i].x-nodes[j].x, dy = nodes[i].y-nodes[j].y;
+        dists.push({j, d: Math.sqrt(dx*dx+dy*dy)});
+      }
+      dists.sort((a,b)=>a.d-b.d);
+      const neighbors = dists.slice(0,3);
+      neighbors.forEach(nb => {
+        if (nb.d < mapW*0.22) {
+          const alpha = Math.max(0, 0.22 - nb.d/mapW*0.3);
+          ctx.strokeStyle = lineColor + alpha.toFixed(3) + ')';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[nb.j].x, nodes[nb.j].y);
+          ctx.stroke();
+        }
+      });
+    }
+
+    // nodes
+    nodes.forEach(n => {
+      const r = n.hub ? 3.6 : 1.8;
+      ctx.beginPath();
+      ctx.fillStyle = n.hub ? hubColor : nodeColor;
+      ctx.globalAlpha = n.hub ? 0.95 : 0.55;
+      ctx.arc(n.x, n.y, r, 0, Math.PI*2);
+      ctx.fill();
+      if (n.hub) {
+        const pulse = 4 + Math.sin(t*3 + n.phase)*2.5;
+        ctx.beginPath();
+        ctx.strokeStyle = hubColor;
+        ctx.globalAlpha = 0.25;
+        ctx.arc(n.x, n.y, r + pulse, 0, Math.PI*2);
+        ctx.stroke();
+      }
+    });
+    ctx.globalAlpha = 1;
+
+    requestAnimationFrame(animate);
+  }
+
+  function init() {
+    resize();
+    buildNodes();
+    animate();
+  }
+  window.addEventListener('resize', () => { resize(); });
+  init();
+</script>
+
+<!-- Modal: Prendre rendez-vous -->
+<div id="modal-appointment" class="modal-overlay">
+  <div class="modal-container">
+    <button class="modal-close" aria-label="Fermer"><i data-lucide="x" width="18" height="18"></i></button>
+    <div class="modal-body-content">
+      <div class="modal-head">
+        <h3>Prendre rendez-vous</h3>
+        <p>Discutons de vos besoins technologiques et définissons ensemble les prochaines étapes.</p>
+      </div>
+      <form id="form-appointment">
+        <div class="form-group">
+          <label for="apt-name">Nom complet</label>
+          <input type="text" id="apt-name" name="name" placeholder="Ex: Jean Koffi" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="apt-email">Email professionnel</label>
+            <input type="email" id="apt-email" name="email" placeholder="Ex: contact@entreprise.com" required>
+          </div>
+          <div class="form-group">
+            <label for="apt-phone">Téléphone</label>
+            <input type="tel" id="apt-phone" name="phone" placeholder="Ex: +225 07 00 00 00 00" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="apt-service">Département ou Service concerné</label>
+          <select id="apt-service" name="service" required>
+            <option value="" disabled selected>Sélectionnez un service</option>
+            <option value="ia">Intelligence Artificielle &amp; Data Science</option>
+            <option value="app">Développement d'Applications</option>
+            <option value="robotics">Robotique</option>
+            <option value="cyber">Cybersécurité &amp; SOC</option>
+            <option value="conseil">Conseil Numérique &amp; Autre</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="apt-date">Date souhaitée</label>
+            <input type="date" id="apt-date" name="date" required>
+          </div>
+          <div class="form-group">
+            <label for="apt-time">Heure souhaitée</label>
+            <input type="time" id="apt-time" name="time" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="apt-message">Parlez-nous brièvement de votre projet</label>
+          <textarea id="apt-message" name="message" placeholder="Décrivez votre besoin, vos objectifs ou vos contraintes..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">
+          Confirmer la demande de rendez-vous <i data-lucide="check" width="16" height="16"></i>
+        </button>
+      </form>
+    </div>
+    <div class="modal-success" id="success-appointment">
+      <div class="modal-success-icon"><i data-lucide="check-circle" width="32" height="32"></i></div>
+      <h4 class="modal-success-title">Demande reçue !</h4>
+      <p class="modal-success-desc">Merci pour votre intérêt. Notre équipe analyse vos besoins et vous recontactera sous 24h ouvrées pour confirmer la date du rendez-vous.</p>
+      <button class="btn btn-ghost modal-close-btn" style="width: 100%; justify-content: center;">Fermer</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Nous écrire -->
+<div id="modal-contact" class="modal-overlay">
+  <div class="modal-container">
+    <button class="modal-close" aria-label="Fermer"><i data-lucide="x" width="18" height="18"></i></button>
+    <div class="modal-body-content">
+      <div class="modal-head">
+        <h3>Nous écrire</h3>
+        <p>Envoyez-nous un message et nous vous répondrons dans les plus brefs délais.</p>
+      </div>
+      <form id="form-contact">
+        <div class="form-group">
+          <label for="msg-name">Nom complet</label>
+          <input type="text" id="msg-name" name="name" placeholder="Ex: Marie Koné" required>
+        </div>
+        <div class="form-group">
+          <label for="msg-email">Adresse e-mail</label>
+          <input type="email" id="msg-email" name="email" placeholder="Ex: marie.kone@gmail.com" required>
+        </div>
+        <div class="form-group">
+          <label for="msg-subject">Sujet de votre message</label>
+          <input type="text" id="msg-subject" name="subject" placeholder="Ex: Demande de devis / Partenariat" required>
+        </div>
+        <div class="form-group">
+          <label for="msg-text">Votre message</label>
+          <textarea id="msg-text" name="message" placeholder="Votre message détaillé..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;">
+          Envoyer le message <i data-lucide="send" width="16" height="16"></i>
+        </button>
+      </form>
+    </div>
+    <div class="modal-success" id="success-contact">
+      <div class="modal-success-icon"><i data-lucide="check-circle" width="32" height="32"></i></div>
+      <h4 class="modal-success-title">Message envoyé !</h4>
+      <p class="modal-success-desc">Votre message a été transmis avec succès à notre équipe commerciale. Nous reviendrons vers vous très prochainement.</p>
+      <button class="btn btn-ghost modal-close-btn" style="width: 100%; justify-content: center;">Fermer</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
